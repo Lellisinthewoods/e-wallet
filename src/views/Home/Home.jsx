@@ -1,10 +1,11 @@
 import './Home.scss'
-
-function Home() {
+import { Link } from 'react-router-dom'
+//här visas alla korten
+function Home() { //usenavigation senare i knappen
   return (
     <section>
         <h1>hej!</h1>
-        <button>ADD A NEW CARD</button>
+        <button><Link to="/AddCard">ADD A NEW CARD</Link></button>
     </section>
   )
 }
