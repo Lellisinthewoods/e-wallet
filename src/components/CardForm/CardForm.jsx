@@ -1,8 +1,61 @@
 import './CardForm.scss'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import addCard from '../../actions/addCardAction'
 
 function CardForm() {
+
+  const [card, setCard] = useState({ //objektet där infon från formuläret läggs in
+    cardnumber: 0,
+    name: "",
+    expires: 0,
+    ccv: 0,
+    vendor: ""
+  })
+  const dispatch = useDispatch();
+
+  function handleChange(event){
+    setCard(prevCard => ({
+      ...prevCard,
+      [event.target.name]: event.target.value
+    }))
+  }
+
+  function handleClick(){
+    dispatch(addCard(card))
+  }
+
   return (
-    <div>CardForm</div>
+    <section>
+      <h2>New card:</h2>
+        <form action="">
+          <h5>CARD NUMBER</h5>
+          <input 
+          type="number" 
+          name="cardnumber" 
+          value={card.cardnumber}
+          onChange={handleChange}/>
+          <h5>CARDHOLDER NAME</h5>
+          <input type="text" name="name" value={card.name} onChange={handleChange}/>
+          <h5>VALID THRU</h5>
+          <input type="date" name="expires" value={card.expires} onChange={handleChange}/>
+          <h5>CCV</h5>
+          <input type="number" name="ccv" value={card.ccv} onChange={handleChange}/>
+          <h5>VENDOR</h5>
+          <select 
+          type="dropdown" 
+          id="vendor" 
+          name="vendor" 
+          value={card.vendor} 
+          onChange={handleChange}>
+            <option value="">--Vendor--</option>
+            <option value="corp1">Corp 1</option>
+            <option value="corp2">Corp 2</option>
+            <option value="corp3">Corp 3</option>
+          </select>
+        </form>
+        <button onClick={handleClick}>ADD CARD</button>
+    </section>
   )
 }
 

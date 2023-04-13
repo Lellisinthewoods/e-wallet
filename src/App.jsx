@@ -2,10 +2,14 @@ import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './views/Home/Home'
 import AddCard from './views/AddCard/AddCard'
+//import { createStore } from 'redux'
+
 
 import './App.css'
 
 function App() {
+
+  //let store = createStore()
 
   const router = createBrowserRouter([
     {
