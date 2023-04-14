@@ -7,18 +7,17 @@ import Card from '../../components/Card/Card'
 //här visas alla korten
 function Home() { //usenavigation senare i knappen
 
-  const [cards, setCards] = useState(useSelector(state => {
-    state===undefined ? null : state.newCard
-  }))
-  //du kanske behöver lägga useSelector i setCards så att den uppdaterar? idk
+  const cardsState = useSelector(state => state.newCard)
 
-  /*console.log(useSelector(state => state.newCard))
-  const cards = useSelector(state => {
-    state.newCard ? state.newCard : null
-  })*/
-  console.log(cards)
+  const [cards, setCards] = useState(cardsState ? cardsState : null)
 
-  const displayCards = cards===undefined ? "Du har inga kort" : cards.map(card => {
+//loopar ut korten: BORDE KANSKE GÖRAS I CARDSTACK??
+//i cardstack kan man lägga in topcard-default som false
+//sedan ha ett klick som sätter kortet på true och loopar igenom RESTEN AV KORTEN
+//alla kort som inte har det kortnumret man klickat på blir topcard=false
+//kortet man klickat på blir topcard
+
+  const displayCards = !cards ? "Du har inga kort" : cards.map(card => {
     return(
       <Card 
       card={card}

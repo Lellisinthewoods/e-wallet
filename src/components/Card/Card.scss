@@ -1,0 +1,19 @@
+.card{
+    background-color: grey;
+
+    &__vendor{ /*kommer nog bara vara en bild*/
+        max-width: 2rem;
+    }
+    &__number{
+        
+    }
+    &__name{
+
+    }
+    &__date{
+        
+    }
+    &--top{ /*specifik position för toppkortet*/
+
+    }
+}

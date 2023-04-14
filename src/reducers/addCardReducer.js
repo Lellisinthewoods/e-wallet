@@ -10,6 +10,7 @@ const addNewCard = (state = cardsCollection, action) => {
                 ...state,
                 newCard: addedCard
             }
+        default: return state;
     }
 }
 

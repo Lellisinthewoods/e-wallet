@@ -8,9 +8,10 @@ function CardForm() {
   const [card, setCard] = useState({ //objektet där infon från formuläret läggs in
     cardnumber: 0,
     name: "",
-    expires: 0,
+    expires: "yyyy-MM-dd",
     ccv: 0,
-    vendor: ""
+    vendor: {},
+    topCard: false
   })
   const dispatch = useDispatch();
 
@@ -23,6 +24,47 @@ function CardForm() {
 
   function handleClick(){
     dispatch(addCard(card))
+  }
+
+  function handleVendor(event){
+    const thisVendor = event.target.value;
+    let vendorObject;
+    switch (thisVendor) {
+      case "BITCOIN INC":
+        vendorObject = {
+          vendorName: "BITCOIN INC",
+          vendorColor: "yellow",
+          vendorImg: "" //länk till logo-img
+        }
+        break;
+      case "NINJA BANK":
+        vendorObject = {
+          vendorName: "NINJA BANK",
+          vendorColor: "black",
+          vendorImg: ""
+        }
+        break;
+      case "BLOCKCHAIN INC":
+        vendorObject = {
+          vendorName: "BLOCKCHAIN INC",
+          vendorColor: "plum",
+          vendorImg: ""
+        }
+        break;
+      case "EVIL CORP":
+        vendorObject = {
+          vendorName: "EVIL CORP",
+          vendorColor: "red",
+          vendorImg: ""
+        }
+        break;
+      default:
+        break;
+    }
+    setCard(prevCard => ({
+      ...prevCard,
+      vendor: vendorObject
+    }))
   }
 
   return (
@@ -47,11 +89,12 @@ function CardForm() {
           id="vendor" 
           name="vendor" 
           value={card.vendor} 
-          onChange={handleChange}>
+          onChange={handleVendor}>
             <option value="">--Vendor--</option>
-            <option value="corp1">Corp 1</option>
-            <option value="corp2">Corp 2</option>
-            <option value="corp3">Corp 3</option>
+            <option value="BITCOIN INC">BITCOIN INC</option>
+            <option value="NINJA BANK">NINJA BANK</option>
+            <option value="BLOCKCHAIN INC">BLOCKCHAIN INC</option>
+            <option value="EVIL CORP">EVIL CORP</option>
           </select>
         </form>
         <button onClick={handleClick}>ADD CARD</button>
