@@ -1,7 +1,7 @@
 import './CardForm.scss'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import addCard from '../../actions/addCardAction'
+import {addCard} from '../../actions/addCardAction'
 
 function CardForm() {
 
@@ -11,7 +11,8 @@ function CardForm() {
     expires: '',
     ccv: '',
     vendor: {},
-    topCard: false
+    topCard: false,
+    id: 0
   })
   const dispatch = useDispatch();
 

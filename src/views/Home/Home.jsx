@@ -12,6 +12,7 @@ function Home() { //usenavigation senare i knappen
   const [cards, setCards] = useState(cardsState ? cardsState : null)
   console.log(cardsState)
   console.log(cards)
+  
 
 //loopar ut korten: BORDE KANSKE GÖRAS I CARDSTACK??
 //i cardstack kan man lägga in topcard-default som false

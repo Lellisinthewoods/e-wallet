@@ -1,5 +1,6 @@
 const cardsCollection = {
     newCard: [],
+    activeCard: []
 }
 
 const addNewCard = (state = cardsCollection, action) => {
@@ -9,6 +10,13 @@ const addNewCard = (state = cardsCollection, action) => {
             return{
                 ...state,
                 newCard: addedCard
+            }
+        case 'CHANGE_TOP':
+            console.log(action.payload)
+            const topCard = action.payload;
+            return{
+                ...state,
+                activeCard: topCard
             }
         default: return state;
     }

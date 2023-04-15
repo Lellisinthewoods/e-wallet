@@ -1,11 +1,19 @@
 import './Card.scss'
+import { useDispatch } from 'react-redux'
+import { changeTop } from '../../actions/addCardAction';
 
 function Card(props) {
+  const dispatch = useDispatch();
   const {card} = props;
 
+  console.log(card.id)
+
   function handleClick(){
-    {card.topcard = !card.topcard} //när topcard=true ska kortet placeras överst i listan
+     //när topCard=true ska kortet placeras överst i listan
+     dispatch(changeTop(card))
   }
+
+  const cardTextColor = card.vendor.vendorName=="NINJA BANK" ? "white" : "black";
 
   //article för bilderna
   //article namnet
@@ -14,8 +22,8 @@ function Card(props) {
 
   return ( //inuti Card-komponenten
     <section 
-    style={{backgroundColor: card.vendor.vendorColor}} 
-    className={card.topcard ? `card card--top` : `card`} 
+    style={{backgroundColor: card.vendor.vendorColor, color: {cardTextColor}} } 
+    className={card.topCard ? `card card--top` : `card`} 
     onClick={handleClick}
     >
       <article className='card__images'>
