@@ -6,10 +6,10 @@ import addCard from '../../actions/addCardAction'
 function CardForm() {
 
   const [card, setCard] = useState({ //objektet där infon från formuläret läggs in
-    cardnumber: 0,
+    cardnumber: '',
     name: "",
-    expires: "yyyy-MM-dd",
-    ccv: 0,
+    expires: '',
+    ccv: '',
     vendor: {},
     topCard: false
   })
@@ -33,29 +33,29 @@ function CardForm() {
       case "BITCOIN INC":
         vendorObject = {
           vendorName: "BITCOIN INC",
-          vendorColor: "yellow",
-          vendorImg: "" //länk till logo-img
+          vendorColor: "rgba(255, 174, 52, 1)",
+          vendorImg: "src/assets/vendor-bitcoin.svg" //länk till logo-img
         }
         break;
       case "NINJA BANK":
         vendorObject = {
           vendorName: "NINJA BANK",
-          vendorColor: "black",
-          vendorImg: ""
+          vendorColor: "rgba(34, 34, 34, 1)",
+          vendorImg: "src/assets/vendor-ninja.svg"
         }
         break;
       case "BLOCKCHAIN INC":
         vendorObject = {
           vendorName: "BLOCKCHAIN INC",
-          vendorColor: "plum",
-          vendorImg: ""
+          vendorColor: "rgba(139, 88, 249, 1)",
+          vendorImg: "src/assets/vendor-blockchain.svg"
         }
         break;
       case "EVIL CORP":
         vendorObject = {
           vendorName: "EVIL CORP",
-          vendorColor: "red",
-          vendorImg: ""
+          vendorColor: "rgba(243, 51, 85, 1)",
+          vendorImg: "src/assets/vendor-evil.svg"
         }
         break;
       default:
@@ -68,21 +68,22 @@ function CardForm() {
   }
 
   return (
-    <section>
+    <section className='form'>
       <h2>New card:</h2>
         <form action="">
           <h5>CARD NUMBER</h5>
           <input 
-          type="number" 
+          type="tel" 
           name="cardnumber" 
+          placeholder='xxxx xxxx xxxx xxxx'
           value={card.cardnumber}
           onChange={handleChange}/>
           <h5>CARDHOLDER NAME</h5>
-          <input type="text" name="name" value={card.name} onChange={handleChange}/>
+          <input placeholder='Name Namesson' type="text" name="name" value={card.name} onChange={handleChange}/>
           <h5>VALID THRU</h5>
-          <input type="date" name="expires" value={card.expires} onChange={handleChange}/>
+          <input placeholder='DD/MM' type="tel" name="expires" value={card.expires} onChange={handleChange}/>
           <h5>CCV</h5>
-          <input type="number" name="ccv" value={card.ccv} onChange={handleChange}/>
+          <input placeholder='XXX' type="tel" name="ccv" value={card.ccv} onChange={handleChange}/>
           <h5>VENDOR</h5>
           <select 
           type="dropdown" 

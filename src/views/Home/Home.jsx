@@ -10,6 +10,8 @@ function Home() { //usenavigation senare i knappen
   const cardsState = useSelector(state => state.newCard)
 
   const [cards, setCards] = useState(cardsState ? cardsState : null)
+  console.log(cardsState)
+  console.log(cards)
 
 //loopar ut korten: BORDE KANSKE GÖRAS I CARDSTACK??
 //i cardstack kan man lägga in topcard-default som false
@@ -17,7 +19,7 @@ function Home() { //usenavigation senare i knappen
 //alla kort som inte har det kortnumret man klickat på blir topcard=false
 //kortet man klickat på blir topcard
 
-  const displayCards = !cards ? "Du har inga kort" : cards.map(card => {
+  let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
     return(
       <Card 
       card={card}
