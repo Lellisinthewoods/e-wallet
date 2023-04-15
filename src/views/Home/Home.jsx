@@ -34,9 +34,9 @@ function Home() { //usenavigation senare i knappen
   })
 
   return (
-    <section>
+    <section className='home'>
         {displayCards}
-        <button><Link to="/AddCard">ADD A NEW CARD</Link></button>
+        <button className='home__button'><Link to="/AddCard">ADD A NEW CARD</Link></button>
     </section>
   )
 }

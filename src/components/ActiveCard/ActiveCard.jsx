@@ -9,7 +9,7 @@ function ActiveCard() {
   console.log(activeCard);
 
   return (
-    <div>ActiveCard</div>
+    <div></div>
   )
 }
 
