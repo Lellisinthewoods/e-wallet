@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import Card from '../../components/Card/Card'
+import ActiveCard from '../../components/ActiveCard/ActiveCard'
 
 //här visas alla korten
 function Home() { //usenavigation senare i knappen
@@ -22,10 +23,13 @@ function Home() { //usenavigation senare i knappen
 
   let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
     return(
-      <Card 
-      card={card}
-      key={card.cardnumber}
-      />
+      <main>
+        <ActiveCard/>
+        <Card 
+        card={card}
+        key={card.cardnumber}
+        />
+      </main>
     )
   })
 
