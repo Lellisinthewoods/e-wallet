@@ -1,5 +1,6 @@
 import './ActiveCard.scss'
 import { useSelector } from 'react-redux'
+import Card from '../Card/Card';
 
 //Här hämtas all info om det aktiva kortet!!
 
@@ -9,7 +10,7 @@ function ActiveCard() {
   console.log(activeCard);
 
   return (
-    <div></div>
+    <Card card={activeCard}/>
   )
 }
 

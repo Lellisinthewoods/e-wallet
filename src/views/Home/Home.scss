@@ -1,8 +1,16 @@
+.App{
+    min-width: 100%;
+    min-height: 100%;
+}
+
 .home{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    min-width: 100%;
+    min-height: 50vh;
+    margin: 2rem 0 2rem 0;
     a{
         text-decoration: none;
         color: black;

@@ -6,8 +6,6 @@ function Card(props) {
   const dispatch = useDispatch();
   const {card} = props;
 
-  console.log(card.id)
-
   function handleClick(){
      //när topCard=true ska kortet placeras överst i listan
      dispatch(changeTop(card))

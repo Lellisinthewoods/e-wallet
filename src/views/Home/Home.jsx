@@ -23,20 +23,18 @@ function Home() { //usenavigation senare i knappen
 
   let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
     return(
-      <main>
-        <ActiveCard/>
         <Card 
         card={card}
         key={card.cardnumber}
         />
-      </main>
     )
   })
 
   return (
     <section className='home'>
-        {displayCards}
-        <button className='home__button'><Link to="/AddCard">ADD A NEW CARD</Link></button>
+      <ActiveCard/>
+      {displayCards}
+      <button className='home__button'><Link to="/AddCard">ADD A NEW CARD</Link></button>
     </section>
   )
 }
