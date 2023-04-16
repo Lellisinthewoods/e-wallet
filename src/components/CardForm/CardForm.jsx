@@ -10,9 +10,7 @@ function CardForm() {
     name: "",
     expires: '',
     ccv: '',
-    vendor: {},
-    topCard: false,
-    id: 0
+    vendor: {} //TOG BORT ID OCH TOPCARD-BOOL, KAN GE BUGGAR
   })
   const dispatch = useDispatch();
 

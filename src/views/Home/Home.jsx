@@ -9,8 +9,10 @@ import ActiveCard from '../../components/ActiveCard/ActiveCard'
 function Home() { //usenavigation senare i knappen
 
   const cardsState = useSelector(state => state.newCard)
+  const activeCardState = useSelector(state => state.activeCard)
 
   const [cards, setCards] = useState(cardsState ? cardsState : null)
+  const [activeCard, setActiveCard] = useState(activeCardState ? activeCardState : null)
   console.log(cardsState)
   console.log(cards)
   
@@ -23,6 +25,7 @@ function Home() { //usenavigation senare i knappen
 
   let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
     return(
+      card==activeCard ? null : 
         <Card 
         card={card}
         key={card.cardnumber}
@@ -32,7 +35,8 @@ function Home() { //usenavigation senare i knappen
 
   return (
     <section className='home'>
-      <ActiveCard/>
+      { activeCard ? <ActiveCard/> : null}
+      <h5>OTHER CARDS</h5>
       {displayCards}
       <button className='home__button'><Link to="/AddCard">ADD A NEW CARD</Link></button>
     </section>

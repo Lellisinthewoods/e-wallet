@@ -10,7 +10,10 @@ function ActiveCard() {
   console.log(activeCard);
 
   return (
-    <Card card={activeCard}/>
+    <article className='activeCard'>
+      <h5>ACTIVE CARD</h5>
+      <Card card={activeCard}/>
+    </article>
   )
 }
 
