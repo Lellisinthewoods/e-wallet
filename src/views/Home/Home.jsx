@@ -19,10 +19,13 @@ function Home() {
 
   const localCards = JSON.parse(localStorage.getItem('cards'))
   if (localCards==null){ //om localStorage är tom
+    console.log(localCards)
     localStorage.setItem('cards', JSON.stringify(cards)) //sätter cards (tom) i local storage
+    //GET HÄR EFTERÅT så den hämtar en tom localcards
   }
   else{ //om det finns något i localstorage
-    //cards.push(localCards) BUGG!! den slänger in en tom array i arrayen
+    console.log(localCards)
+    cards.concat(localCards)
   }
 
   console.log("LOCALCARDS: ", localCards)
