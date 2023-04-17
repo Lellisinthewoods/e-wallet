@@ -2,6 +2,7 @@ import './CardForm.scss'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {addCard} from '../../actions/addCardAction'
+import { useNavigate } from 'react-router' //react router dom?
 
 function CardForm() {
 
@@ -10,9 +11,14 @@ function CardForm() {
     name: "",
     expires: '',
     ccv: '',
-    vendor: {} //TOG BORT ID OCH TOPCARD-BOOL, KAN GE BUGGAR
+    vendor: {
+      vendorName: "",
+      vendorColor: "",
+      vendorImg: ""
+    } //TOG BORT ID OCH TOPCARD-BOOL, KAN GE BUGGAR
   })
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleChange(event){
     setCard(prevCard => ({
@@ -23,6 +29,8 @@ function CardForm() {
 
   function handleClick(){
     dispatch(addCard(card))
+    localStorage.setItem('cards', JSON.stringify(card))
+    navigate('/')
   }
 
   function handleVendor(event){

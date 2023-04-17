@@ -7,12 +7,18 @@ import Card from '../Card/Card';
 function ActiveCard() {
 
   const activeCard = useSelector(state => state.activeCard)
-  console.log(activeCard);
+  let activeCardArray = Object.keys(activeCard); //testar om något finns i objektet
 
   return (
-    <article className='activeCard'>
-      <h5>ACTIVE CARD</h5>
-      <Card card={activeCard}/>
+    <article>
+      
+      {
+      activeCardArray.length==0 ? "" : 
+      <div  className='activeCard'>
+        <h5>ACTIVE CARD</h5>
+        <Card card={activeCard}/>
+      </div>
+      }
     </article>
   )
 }

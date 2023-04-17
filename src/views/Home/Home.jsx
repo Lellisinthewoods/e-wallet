@@ -1,9 +1,14 @@
 import './Home.scss'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Card from '../../components/Card/Card'
 import ActiveCard from '../../components/ActiveCard/ActiveCard'
+import AddCard from '../AddCard/AddCard'
+
+//importera AddCard
+//kör AddCard-funktionen som lägger till korten i newCard-reducern
+//hämta newCard-reducern
 
 //här visas alla korten
 function Home() { //usenavigation senare i knappen
@@ -11,19 +16,29 @@ function Home() { //usenavigation senare i knappen
   const cardsState = useSelector(state => state.newCard)
   const activeCardState = useSelector(state => state.activeCard)
 
-  const [cards, setCards] = useState(cardsState ? cardsState : null)
+  const [cards, setCards] = useState(cardsState)
+  console.log("rad 15!")
   const [activeCard, setActiveCard] = useState(activeCardState ? activeCardState : null)
-  console.log(cardsState)
+  console.log(activeCard)
   console.log(cards)
+
+  localStorage.setItem('cards', JSON.stringify(cards)) //tömmer varje gång
+  const localCards = JSON.parse(localStorage.getItem('cards'))
+  console.log("LOCALCARDS: ", localCards)
+debugger;
+  /*useEffect(()=>{
+    const data = localStorage.getItem('cards')
+    console.log(data)
+    data ? setCards(localStorage.getItem(JSON.parse(data))) : ""
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('cards', JSON.stringify(cards))
+  }, [cards])
+  //const localCards = cards.length==0 ? [] : JSON.parse(cards);
+  //console.log();*/
   
-
-//loopar ut korten: BORDE KANSKE GÖRAS I CARDSTACK??
-//i cardstack kan man lägga in topcard-default som false
-//sedan ha ett klick som sätter kortet på true och loopar igenom RESTEN AV KORTEN
-//alla kort som inte har det kortnumret man klickat på blir topcard=false
-//kortet man klickat på blir topcard
-
-  let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
+  let displayCards = localCards.length==0 ? "Du har inga kort" : localCards.map(card => {
     return(
       card==activeCard ? null : 
         <Card 
@@ -35,7 +50,7 @@ function Home() { //usenavigation senare i knappen
 
   return (
     <section className='home'>
-      { activeCard ? <ActiveCard/> : null}
+      { activeCard!={} ? <ActiveCard/> : ""}
       <h5>OTHER CARDS</h5>
       {displayCards}
       <button className='home__button'><Link to="/AddCard">ADD A NEW CARD</Link></button>

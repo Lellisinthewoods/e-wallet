@@ -1,5 +1,4 @@
 import './AddCard.scss'
-import { Link } from 'react-router-dom'
 import CardForm from '../../components/CardForm/CardForm'
 import EmptyCard from '../../components/EmptyCard/EmptyCard'
 function AddCard() { //useNavigation senare i knappen
@@ -10,7 +9,6 @@ function AddCard() { //useNavigation senare i knappen
     <article className='addCard'>
       <EmptyCard />
       <CardForm />
-      <Link to="/">Tillbaka</Link>
     </article>
   )
 }
