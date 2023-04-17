@@ -9,6 +9,7 @@ function App() {
 
   //let store = createStore()
 
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -19,6 +20,7 @@ function App() {
       element: <AddCard />
     }
   ])
+
 
   return (
     <div className="App">

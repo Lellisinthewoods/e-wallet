@@ -4,27 +4,29 @@ import { useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import Card from '../../components/Card/Card'
 import ActiveCard from '../../components/ActiveCard/ActiveCard'
-import AddCard from '../AddCard/AddCard'
+import { addCard } from '../../actions/addCardAction'
 
-//importera AddCard
-//kör AddCard-funktionen som lägger till korten i newCard-reducern
-//hämta newCard-reducern
+function Home() {
 
-//här visas alla korten
-function Home() { //usenavigation senare i knappen
-
-  const cardsState = useSelector(state => state.newCard)
+  let cardsState = useSelector(state => state.newCard)
   const activeCardState = useSelector(state => state.activeCard)
 
-  const [cards, setCards] = useState(cardsState)
+  const [cards, setCards] = useState(cardsState) //sätter tom array på cards
   console.log("rad 15!")
   const [activeCard, setActiveCard] = useState(activeCardState ? activeCardState : null)
   console.log(activeCard)
   console.log(cards)
 
-  localStorage.setItem('cards', JSON.stringify(cards)) //tömmer varje gång
   const localCards = JSON.parse(localStorage.getItem('cards'))
+  if (localCards==null){ //om localStorage är tom
+    localStorage.setItem('cards', JSON.stringify(cards)) //sätter cards (tom) i local storage
+  }
+  else{ //om det finns något i localstorage
+    //cards.push(localCards) BUGG!! den slänger in en tom array i arrayen
+  }
+
   console.log("LOCALCARDS: ", localCards)
+  console.log(cards)
 debugger;
   /*useEffect(()=>{
     const data = localStorage.getItem('cards')
@@ -38,7 +40,7 @@ debugger;
   //const localCards = cards.length==0 ? [] : JSON.parse(cards);
   //console.log();*/
   
-  let displayCards = localCards.length==0 ? "Du har inga kort" : localCards.map(card => {
+  let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
     return(
       card==activeCard ? null : 
         <Card 

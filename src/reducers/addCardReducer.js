@@ -20,6 +20,7 @@ const addNewCard = (state = cardsCollection, action) => {
                 ...state,
                 activeCard: topCard //ett nytt kortobjekt, tänkt att skriva över objektet i activeCard
             }
+        
         default: return state;
     }
 }

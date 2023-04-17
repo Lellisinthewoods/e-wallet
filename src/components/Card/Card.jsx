@@ -10,10 +10,7 @@ function Card(props) {
   //det tomma kortet sparas ingenstans om man inte klickar på det
 
   function handleClick(){
-     //när topCard=true ska kortet placeras överst i listan
      dispatch(changeTop(card))
-     localStorage.getItem('cards') == null ?
-     localStorage.setItem('cards', []) : localStorage.setItem('cards', card)
   }
 
   let cardTextColor = card.vendor.vendorName==undefined ? "" : "";
