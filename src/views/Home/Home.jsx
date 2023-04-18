@@ -12,15 +12,12 @@ function Home() {
   const activeCardState = useSelector(state => state.activeCard)
 
   const [cards, setCards] = useState(cardsState) //sätter tom array på cards
-  console.log("rad 15!")
   const [activeCard, setActiveCard] = useState(activeCardState ? activeCardState : null)
   console.log(activeCard)
   console.log(cards)
 
-  const localCards = JSON.parse(localStorage.getItem('cards'))
-  if (localCards==null){ //om localStorage är tom
-    console.log(localCards)
-    localStorage.setItem('cards', JSON.stringify(cards)) //sätter cards (tom) i local storage
+  /*if (localCards==null){ //om localStorage är tom
+    console.log(localCards)//sätter cards (tom) i local storage
     //GET HÄR EFTERÅT så den hämtar en tom localcards
   }
   else{ //om det finns något i localstorage
@@ -30,13 +27,13 @@ function Home() {
 
   console.log("LOCALCARDS: ", localCards)
   console.log(cards)
-debugger;
+debugger;*/
   /*useEffect(()=>{
-    const data = localStorage.getItem('cards')
-    console.log(data)
-    data ? setCards(localStorage.getItem(JSON.parse(data))) : ""
+    //const data = localStorage.getItem()
+    //console.log(data)
+    //data = JSON.parse(data)
   }, [])
-
+/*
   useEffect(() => {
     localStorage.setItem('cards', JSON.stringify(cards))
   }, [cards])
@@ -44,8 +41,11 @@ debugger;
   //console.log();*/
   
   let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
+    /*let cardNumber = card.ccv ? card.ccv : "";
+    let localCard = JSON.parse(localStorage.getItem(cardNumber))
+    console.log(localCard)*/
     return(
-      card==activeCard ? null : 
+      //card==activeCard ? null : //funkar inte?
         <Card 
         card={card}
         key={card.cardnumber}

@@ -14,5 +14,12 @@ function changeTop(value){
     }
 }
 
+function updateLocalStore(){ //TEST. HÄMTAR KORTET FRÅN FORM.
+    console.log("i updatelocalstore");
+    return{
+        type: 'UPDATE_LOCALSTORE'
+    }
+}
 
-export{ addCard, changeTop }
+
+export{ addCard, changeTop, updateLocalStore }

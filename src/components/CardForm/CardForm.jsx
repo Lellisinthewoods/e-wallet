@@ -1,7 +1,7 @@
 import './CardForm.scss'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {addCard} from '../../actions/addCardAction'
+import {addCard, updateLocalStore} from '../../actions/addCardAction'
 import { useNavigate } from 'react-router' //react router dom?
 
 function CardForm() {
@@ -29,7 +29,8 @@ function CardForm() {
 
   function handleClick(){
     dispatch(addCard(card))
-    localStorage.setItem('cards', JSON.stringify(card))
+    //localStorage.setItem('cards', JSON.stringify(card))
+    //dispatch(updateLocalStore())
     navigate('/')
   }
 
