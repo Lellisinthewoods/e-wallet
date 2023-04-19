@@ -13,6 +13,10 @@ function Card(props) {
      dispatch(changeTop(card))
   }
 
+  function handleDelete(){
+    console.log("Du vill ta bort kortet!!!!");
+  }
+
   let cardTextColor = card.vendor.vendorName==undefined ? "" : "";
   console.log(cardTextColor)
   cardTextColor = card.vendor.vendorName=="NINJA BANK" ? "white" : "black";
@@ -21,17 +25,24 @@ function Card(props) {
     <section 
     style={{backgroundColor: card.vendor.vendorColor, color: cardTextColor} } 
     className={card.topCard ? `card card--top` : `card`} 
-    onClick={handleClick}
+    
     >
       <article className='card__images'>
-        <div className='card__wifiChip'>
+        <div className='card__imgSides'>
           <img src="src/assets/noun_wifi_159786 1.svg" alt="" fill={cardTextColor} />
           <img src="src/assets/chip.svg" alt=""/>
         </div>
-        <img src={card.vendor.vendorImg} alt="card__vendor" />
+        <div className='card__imgSides'>
+          <img 
+          src='src/assets/delete_btn.png' 
+          className='card__delBTN'
+          onClick={handleDelete}
+          ></img>
+          <img src={card.vendor.vendorImg} alt="card__vendor" />
+        </div>
       </article>
 
-      <h5 className="card__number">{card.cardnumber}</h5>
+      <h5 className="card__number" onClick={handleClick}>{card.cardnumber}</h5>
 
       <div className='card__info'>
         <article className='card__textarea'>
