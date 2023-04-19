@@ -1,6 +1,6 @@
 import './Card.scss'
 import { useDispatch } from 'react-redux'
-import { changeTop } from '../../actions/addCardAction';
+import { changeTop, deleteCard } from '../../actions/addCardAction';
 
 function Card(props) {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function Card(props) {
 
   function handleDelete(){
     console.log("Du vill ta bort kortet!!!!");
+    dispatch(deleteCard(card))
   }
 
   let cardTextColor = card.vendor.vendorName==undefined ? "" : "";

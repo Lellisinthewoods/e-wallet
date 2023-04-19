@@ -1,7 +1,7 @@
 import './CardForm.scss'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {addCard, updateLocalStore} from '../../actions/addCardAction'
+import {addCard} from '../../actions/addCardAction'
 import { useNavigate } from 'react-router' //react router dom?
 
 function CardForm() {

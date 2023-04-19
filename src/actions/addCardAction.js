@@ -14,12 +14,13 @@ function changeTop(value){
     }
 }
 
-function updateLocalStore(){ //TEST. HÄMTAR KORTET FRÅN FORM.
-    console.log("i updatelocalstore");
+function deleteCard(value){ //TEST.
+    console.log("i deleteCard");
     return{
-        type: 'UPDATE_LOCALSTORE'
+        type: 'DELETE_CARD',
+        payload: value
     }
 }
 
 
-export{ addCard, changeTop, updateLocalStore }
+export{ addCard, changeTop, deleteCard }
