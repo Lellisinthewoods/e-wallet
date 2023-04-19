@@ -3,14 +3,6 @@ const cardsCollection = {
     activeCard: {}
 }
 
-//TA BORT KORT:
-// HÄMTA HELA LOCALSTORAGE
-//SPARA SOM EN ARRAY
-//LOOPA IGENOM ARRAYEN EFTER NÅT VÄRDE I OBJEKTET
-//TA BORT OBJEKTET (pull? eller nån funktion som tar bort saker ur arrayer)
-//skicka tillbaka arrayen utan objektet till localstorage. 
-//profit
-
 const addNewCard = (state = cardsCollection, action) => {
 
     switch(action.type){
