@@ -56,9 +56,10 @@ debugger;*/
   return (
     <section className='home'>
       { activeCard!={} ? <ActiveCard/> : ""}
-      <h5>OTHER CARDS</h5>
-      {displayCards}
+      <h5 className='home__text'>OTHER CARDS</h5>
+        {displayCards}
       <button className='home__button'><Link to="/AddCard">ADD A NEW CARD</Link></button>
+
     </section>
   )
 }

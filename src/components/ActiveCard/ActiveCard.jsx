@@ -10,12 +10,12 @@ function ActiveCard() {
   let activeCardArray = Object.keys(activeCard); //testar om något finns i objektet
 
   return (
-    <article>
+    <article className="activeArea">
       
       {
       activeCardArray.length==0 ? "" : 
       <div  className='activeCard'>
-        <h5>ACTIVE CARD</h5>
+        <h5 className='activeCard__text'>ACTIVE CARD</h5>
         <Card card={activeCard}/>
       </div>
       }

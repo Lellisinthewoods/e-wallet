@@ -10,10 +10,19 @@
     flex-direction: column;
     min-width: 100%;
     min-height: 50vh;
-    margin: 2rem 0 2rem 0;
+    margin: 1rem 0 2rem 0;
     a{
         text-decoration: none;
         color: black;
+    }
+
+    .activeArea{
+        margin-bottom: 11rem;
+    }
+
+    &__text{
+        font-family: 'Source Sans Pro';
+        color: rgba(34, 34, 34, 0.6);
     }
     
     &__button{
@@ -28,5 +37,7 @@
         padding: 1rem;
         min-width: 300px;
         max-width: 380px;
+        margin-top: 12rem;
+        align-self: auto;
     }
 }

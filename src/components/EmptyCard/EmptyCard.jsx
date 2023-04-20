@@ -22,7 +22,9 @@ function EmptyCard() {
   })
 
   return (
-    <Card card={emptyCard}/>
+    <article className='emptyCard'>
+      <Card card={emptyCard}/>
+    </article>
   )
 }
 
