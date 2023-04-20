@@ -13,7 +13,6 @@ function Card(props) {
   function handleDelete(){
     console.log("Du vill ta bort kortet!!!!");
     dispatch(deleteCard(card))
-    location.reload(); //så att sidan ska re-rendera. fråga C om annat sätt?
   }
 
   let cardTextColor = card.vendor.vendorName==undefined ? "" : "";

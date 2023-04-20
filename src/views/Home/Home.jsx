@@ -15,7 +15,7 @@ function Home() {
   console.log(activeCard)
   console.log(cards)
   
-  let displayCards = cards.length==0 ? "Du har inga kort" : cards.map(card => {
+  let displayCards = cardsState.length==0 ? "Du har inga kort" : cardsState.map(card => {
     return(
         <Card 
         card={card}

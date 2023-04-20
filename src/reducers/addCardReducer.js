@@ -24,8 +24,9 @@ const addNewCard = (state = cardsCollection, action) => {
                 activeCard: topCard //ett nytt kortobjekt, tänkt att skriva över objektet i activeCard
             }
         case 'DELETE_CARD':
-            let stateArray = state.newCard;
-            const activeCard = state.activeCard;
+            let stateArray = [...state.newCard];
+            let activeCard = {...state.activeCard};
+            console.log(activeCard);
             console.log(stateArray);
             for (let i = 0; i < stateArray.length; i++) {
                 const card = stateArray[i];
@@ -34,13 +35,17 @@ const addNewCard = (state = cardsCollection, action) => {
                 : null
             }
             console.log(stateArray);
-            activeCard.cardnumber==action.payload.cardnumber //tar bort activecard om kortet är detsamma
-            ? localStorage.removeItem('activeCard')
-            : null
+            if (activeCard.cardnumber==action.payload.cardnumber) //tar bort activecard om kortet är detsamma
+            { 
+                localStorage.removeItem('activeCard')
+                activeCard = {} //tömmer även activeCard-variabeln så den tömmer i state
+            }
             localStorage.setItem('cards', JSON.stringify(stateArray))
-            //måste vi returnera som vi gör i addcard-funktionen?
-            //den uppdaterar men re-renderar inte
-            break;
+            return{
+                ...state,
+                newCard: stateArray,
+                activeCard: activeCard
+            }
         default: return state;
     }
 }
