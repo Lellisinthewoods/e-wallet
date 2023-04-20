@@ -34,7 +34,14 @@ function Card(props) {
           <img src="src/assets/noun_wifi_159786 1.svg" alt="" fill={cardTextColor} />
           <img src="src/assets/chip.svg" alt=""/>
         </div>
+
+        
+        <img className='card__fave' 
+        src="src/assets/ic_outline-star-border.png" 
+        onClick={handleClick} />
+        
         <div className='card__imgSides'>
+
           <img 
           src='src/assets/delete_btn.png' 
           className='card__delBTN'
@@ -44,7 +51,7 @@ function Card(props) {
         </div>
       </article>
 
-      <h5 className="card__number" onClick={handleClick}>{card.cardnumber}</h5>
+      <h5 className="card__number">{card.cardnumber}</h5>
 
       <div className='card__info'>
         <article className='card__textarea'>
