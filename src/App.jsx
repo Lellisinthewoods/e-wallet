@@ -3,11 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './views/Home/Home'
 import AddCard from './views/AddCard/AddCard'
 import './views/Home/Home.scss'
-//import { createStore } from 'redux'
 
 function App() {
-
-  //let store = createStore()
 
 
   const router = createBrowserRouter([

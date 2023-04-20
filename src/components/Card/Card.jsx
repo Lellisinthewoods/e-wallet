@@ -6,9 +6,6 @@ function Card(props) {
   const dispatch = useDispatch();
   const {card} = props;
 
-  console.log(card) //renderas även när empty card ska visas
-  //det tomma kortet sparas ingenstans om man inte klickar på det
-
   function handleClick(){
      dispatch(changeTop(card))
   }
@@ -39,7 +36,7 @@ function Card(props) {
         <img className='card__fave' 
         src="src/assets/ic_outline-star-border.png" 
         onClick={handleClick} />
-        
+
         <div className='card__imgSides'>
 
           <img 

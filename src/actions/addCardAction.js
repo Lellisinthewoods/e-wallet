@@ -14,7 +14,7 @@ function changeTop(value){
     }
 }
 
-function deleteCard(value){ //TEST.
+function deleteCard(value){
     console.log("i deleteCard");
     return{
         type: 'DELETE_CARD',

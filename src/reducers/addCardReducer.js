@@ -34,7 +34,7 @@ const addNewCard = (state = cardsCollection, action) => {
                 : null
             }
             console.log(stateArray);
-            activeCard.cardnumber==action.payload.cardnumber //ta bort activecard om kortet är detsamma
+            activeCard.cardnumber==action.payload.cardnumber //tar bort activecard om kortet är detsamma
             ? localStorage.removeItem('activeCard')
             : null
             localStorage.setItem('cards', JSON.stringify(stateArray))
